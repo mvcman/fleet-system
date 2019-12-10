@@ -1,5 +1,5 @@
 import React from 'react';
-import  './App.css';
+import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Contact from './components/Contact';
@@ -14,14 +14,14 @@ function App() {
   return (
     <div>
       <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/contact" component={Contact}/>
-          <Route exact path="/booking" component={Booking}/>
-          <Route exact path="/login" component={Login}/>
-          <Route component={ErrorPage}/>
-        </Switch>
-      <Footer/>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/booking" component={Booking} />
+        <Route exact path="/login" component={Login} />
+        <Route component={ErrorPage} />
+      </Switch>
+      <Footer />
     </div>
   );
 }
