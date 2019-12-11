@@ -3,12 +3,12 @@ import { render } from '@testing-library/react';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-test('renders learn react link', () => {
+test('renders Inside ', () => {
   const { getByText } = render(
     <Router>
       <App />
     </Router>,
   );
-  const linkElement = getByText(/Inside Home component/i);
-  expect(linkElement).toBeInTheDocument();
+  const linkElement = getByText(/Inside Footer component/i);
+  expect(linkElement).toBeDefined();
 });

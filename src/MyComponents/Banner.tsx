@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
   title: string;
   subtitle: string;
-  children: any;
+  children?: any;
 }
 export default function Banner(props: Props) {
   return (

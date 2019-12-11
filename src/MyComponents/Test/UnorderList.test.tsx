@@ -1,9 +1,5 @@
-import React from 'react';
 import UnorderList from '../UnorderList';
-import { mount, shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { React, mount, shallow, Adapter, render, configure, Router } from './config';
 
 let isOpen = true;
 
@@ -23,7 +19,7 @@ describe('The Links in list format', () => {
   );
 
   it('Should Render', () => {
-    expect(wrapper).toBeValid;
+    expect(wrapper).toBeDefined();
   });
 
   it('Should contain only one ul tag', () => {
@@ -54,16 +50,5 @@ describe('The Links in list format', () => {
       </Router>,
     );
     expect(wrapper1.find('ul').hasClass('Nav2')).toBeTruthy();
-  });
-
-  it('If isOpen == false the className should be Nav2', () => {
-    isOpen = false;
-    const { getByText } = render(
-      <Router>
-        <UnorderList prev_opt="Nav1" next_opt="Nav2" handleToggle={handleToggle} isOpen={isOpen} list={list} />
-      </Router>,
-    );
-    const linkElement = getByText('mandar');
-    expect(linkElement).toBeInTheDocument();
   });
 });

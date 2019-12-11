@@ -57,28 +57,6 @@ export default class Navbar extends Component<{}, State> {
             list={navigationlist}
             isOpen={this.state.isOpen}
           />
-          {/* <ul className={this.state.isOpen ? 'nav-links1 show-nav1' : 'nav-links1'}>
-            <li>
-              <Link to="/" onClick={this.handleToggle}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" onClick={this.handleToggle}>
-                Contact Us
-              </Link>
-            </li>
-            <li>
-              <Link to="/booking" onClick={this.handleToggle}>
-                Booking
-              </Link>
-            </li>
-            <li>
-              <Link to="/login" onClick={this.handleToggle}>
-                Login
-              </Link>
-            </li>
-          </ul> */}
         </div>
       </nav>
     );

@@ -1,8 +1,5 @@
-import React from 'react';
 import LinkList from '../LinkList';
-import { mount, shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { React, mount, shallow, Adapter, render, configure, Router } from './config';
 
 const list = [
   {
@@ -33,7 +30,7 @@ describe('The Links in list format', () => {
   );
 
   it('Should Render', () => {
-    expect(wrapper).toBeValid;
+    expect(wrapper).toBeDefined();
   });
 
   it('Should contain list size of 3', () => {
