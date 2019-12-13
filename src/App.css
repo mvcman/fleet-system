@@ -37,6 +37,7 @@ h3 {
   font-size: 1.5em;
   line-height: 1;
   margin-bottom: 1em;
+  text-align: center;
 }
 h4 {
   font-size: 1.2em;
@@ -52,6 +53,11 @@ h6 {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 1.5em;
+}
+p {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  text-align: center;
 }
 
 /* Navbar */
@@ -120,7 +126,7 @@ h6 {
 .error {
   min-height: calc(100vh - 66px);
   background: url("./images/bus2.jpg") center/cover no-repeat;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -165,12 +171,55 @@ h6 {
   border: 3px solid var(--primaryColor);
 }
 
-@media screen and (min-width: 768px) {
+/* Features Component */
+
+.features1 {
+  display: flex;
+  max-width: 100%;
+  height: auto;
+  background: rgb(204, 235, 233);
+  color: white;
+  padding: 30px;
+  justify-content: center;
+}
+.card {
+  margin: 25px;
+  width: 80%;
+  height: 300px;
+  padding: 30px;
+  border-radius: 50%;
+  background: black;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+.card1 {
+  max-width: 100%;
+}
+.nav-icon2 {
+  font-size: 2em;
+  color: white;
+}
+
+@media screen and (min-width: 568px) and (max-width: 767px){
+  .card {
+    margin: 15px;
+    width: 45%;
+    height: 300px;
+    padding: 25px;
+    background: black;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px){
   .nav-btn1 {
     display: none;
   }
   .nav-center1 {
-    max-width: 1170px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
   }
@@ -182,6 +231,16 @@ h6 {
   .nav-links1 a {
     margin: 0 1rem;
     padding: 0.5rem 0;
+  }
+  .card {
+    margin: 20px;
+    width: 250px;
+    height: 300px;
+    padding: 25px;
+    background: black;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
   }
 }
 
