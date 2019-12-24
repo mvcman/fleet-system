@@ -9,6 +9,6 @@ test('renders Inside ', () => {
       <App />
     </Router>,
   );
-  const linkElement = getByText(/Inside Footer component/i);
+  const linkElement = getByText(/Book Bus/i);
   expect(linkElement).toBeDefined();
 });
