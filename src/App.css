@@ -11,6 +11,7 @@
   --mainGrey: #ececec;
   --darkGrey: #cfcfcf;
   --darkBlack: #000000;
+  --lightblue:rgb(204, 235, 233);
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -24,20 +25,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.4;
 }
-/* h1 {
-  font-size: 3em;
-  line-height: 1;
-  margin-bottom: 0.5em;
-}
-h2 {
-  font-size: 2em;
-  margin-bottom: 0.75em;
-}
-h3 {
-  font-size: 1.5em;
-  line-height: 1;
-  margin-bottom: 1em;
-}
+
 h4 {
   font-size: 1.2em;
   line-height: 1.25;
@@ -62,6 +50,7 @@ p {
   margin-bottom: 1.5em;
   text-align: center;
 }
+
 /* Home page Banner component */
 .hero {
   min-height: calc(80vh - 66px);
@@ -87,13 +76,16 @@ p {
   align-items: center;
   justify-content: center;
 }
-
+.nav-icon2 {
+  font-size: 2em;
+  color: maroon;
+}
 /* Features Component */
-
-/* .features1 {
+.features1 {
   display: flex;
   max-width: 100%;
   height: auto;
+  /* background: #7db3cc; */
   background: rgb(204, 235, 233);
   color: white;
   padding: 30px;
@@ -106,55 +98,25 @@ p {
   padding: 30px;
   border-radius: 50%;
   background: black;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 .card1 {
   max-width: 100%;
-} */
+}
 .nav-icon2 {
   font-size: 2em;
-  color: maroon;
-} 
-
-/* @media screen and (min-width: 568px) and (max-width: 767px){
-  .card {
-    margin: 15px;
-    width: 45%;
-    height: 300px;
-    padding: 25px;
-    background: black;
-    align-items: center;
-    justify-content: center;
-  }
-} */
-
-/* @media screen and (min-width: 768px){
-  .nav-btn1 {
-    display: none;
-  }
-  .nav-center1 {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-  }
-  .nav-links1 {
-    height: auto;
-    display: flex;
-    margin-left: 10rem;
-  }
-  .nav-links1 a {
-    margin: 0 1rem;
-    padding: 0.5rem 0;
-  }
-  .card {
-    margin: 20px;
-    width: 250px;
-    height: 300px;
-    padding: 25px;
-    background: black;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-  }
-} */
+  color: white;
+}
+/*Footer Component*/
+.footer{
+  padding: 20px;
+  background: black;
+  color: white;
+}
+.social{
+  margin: 5px;
+  display: flex;
+  padding: 2px;
+}

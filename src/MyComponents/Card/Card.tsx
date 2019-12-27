@@ -6,6 +6,7 @@ interface Props {
   description: string;
   logo?: any;
 }
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {

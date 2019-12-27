@@ -4,14 +4,23 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Booking from './components/Booking';
-import Login from './components/Login';
 import Bookbus from './components/Bookbus';
 import ErrorPage from './components/ErrorPage';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SignIn from './components/Login';
+import SignUp from './components/SignUp';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { blueGrey, pink } from '@material-ui/core/colors';
+
+const theme = createMuiTheme({
+  typography: {},
+  palette: {
+    primary: blueGrey,
+    secondary: pink,
+  },
+});
 
 // import GenghisKhan-Italic from './assets/genghis-khan/GenghisKhan-Italic.otf';
 
@@ -77,20 +86,23 @@ export const theme6 = createMuiTheme({
 
 function App() {
   return (
-    <div>
-      <ThemeProvider theme={theme6}>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/booking" component={Booking} />
-          <Route exact path="/bookbus" component={Bookbus} />
-          <Route exact path="/login" component={Login} />
-          <Route component={ErrorPage} />
-        </Switch>
-        <Footer />
-      </ThemeProvider>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <div>
+        <ThemeProvider theme={theme6}>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/booking" component={Booking} />
+            <Route exact path="/bookbus" component={Bookbus} />
+            <Route exact path="/login" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route component={ErrorPage} />
+          </Switch>
+          <Footer />
+        </ThemeProvider>
+      </div>
+    </MuiThemeProvider>
   );
 }
 
