@@ -4,8 +4,10 @@ import Image from '../images/bus2.jpg';
 const useStyles = makeStyles(theme => ({
   contactRoot: {
     padding: '10px 20px',
+    height: 'auto',
     '@media (min-width: 768px)': {
       padding: '20px 70px',
+      height: '80vh',
     },
     '@media (min-width: 1080px)': {
       // border:'2px solid red',
@@ -17,9 +19,9 @@ const useStyles = makeStyles(theme => ({
     },
   },
   root: {
-    height: '100vh',
+    height: 'auto',
     '@media (min-width: 1800px)': {
-      height: '70vh',
+      height: '100vh',
     },
   },
   image: {

@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.common.white,
       fontFamily: theme.typography.fontFamily,
     },
+    h2: {
+      fontSize: '20px',
+      '@media (min-width: 768px)': {
+        fontSize: '30px',
+      },
+    },
   }),
 );
 
@@ -26,7 +32,9 @@ function Booking() {
     <div className={classes.main}>
       <Searchbar />
       <div className={classes.bookingDiv}>
-        <h2 style={{ margin: 20 }}>Following are the routes we are currently running on:</h2>
+        <h2 style={{ margin: 10 }} className={classes.h2}>
+          Following are the routes we are currently running on:
+        </h2>
       </div>
       <TableComponent />
     </div>

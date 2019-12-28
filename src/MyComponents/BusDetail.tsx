@@ -1,5 +1,6 @@
 import React from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { Badge } from 'reactstrap';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,42 +29,73 @@ interface Props {
 
 function BusDetail(props: Props) {
   const classes = useStyles();
+  let badgename = 'primary';
+  if (props.rating >= 4.0) {
+    badgename = 'success';
+  } else if (props.rating >= 3.0) {
+    badgename = 'warning';
+  } else if (props.rating >= 2.0) {
+    badgename = 'primary';
+  } else {
+    badgename = 'danger';
+  }
+
   return (
     <div className={classes.Busdetail}>
       <div>
-        <h6>Name</h6>
-        <h6>{props.name}</h6>
+        <h6>
+          <span style={{ color: '#979A9A' }}>Name</span>
+        </h6>
+        <h6>
+          <span style={{ color: '#2E4053', fontWeight: 'bold' }}>{props.name}</span>
+        </h6>
       </div>
       <hr />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <h6>Departure</h6>
-        <h6>{props.departureTime}</h6>
-        <h6>{props.departurePlace}</h6>
-      </div>
-      <hr />
-      <div>
-        <h6>Duration</h6>
-        <h6>{props.duration}</h6>
-      </div>
-      <hr />
-      <div>
-        <h6>Arrival</h6>
         <h6>
-          <span style={{ color: '#000', fontWeight: 'bold' }}>{props.arrivalTime}</span>
+          <span style={{ color: '#979A9A' }}>Departure</span>
+        </h6>
+        <h6>
+          <span style={{ color: '#2E4053', fontWeight: 'bold' }}>{props.departureTime}</span>
+        </h6>
+        <h6>
+          <span style={{ color: '#2E4053', fontWeight: 'bold' }}>{props.departurePlace}</span>
         </h6>
       </div>
       <hr />
       <div>
-        <h6>Rating</h6>
         <h6>
-          <span style={{ color: '#000', fontWeight: 'bold' }}>{props.rating}</span>
+          <span style={{ color: '#979A9A' }}>Duration</span>
+        </h6>
+        <h6>
+          <span style={{ color: '#2E4053', fontWeight: 'bold' }}>{props.duration}</span>
         </h6>
       </div>
       <hr />
       <div>
-        <h6>Fare</h6>
         <h6>
-          INR <span style={{ color: '#000', fontWeight: 'bold' }}>{props.fare}</span>
+          <span style={{ color: '#979A9A' }}>Arrival</span>
+        </h6>
+        <h6>
+          <span style={{ color: '#2E4053', fontWeight: 'bold' }}>{props.arrivalTime}</span>
+        </h6>
+      </div>
+      <hr />
+      <div>
+        <h6>
+          <span style={{ color: '#979A9A' }}>Rating</span>
+        </h6>
+        <h6>
+          <Badge color={badgename}>{props.rating}</Badge>
+        </h6>
+      </div>
+      <hr />
+      <div>
+        <h6>
+          <span style={{ color: '#979A9A' }}>Fare</span>
+        </h6>
+        <h6>
+          <span style={{ color: '#2E4053', fontWeight: 'bold' }}>INR {props.fare}</span>
         </h6>
       </div>
     </div>

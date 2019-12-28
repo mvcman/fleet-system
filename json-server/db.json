@@ -1,0 +1,70 @@
+{
+    "routes":[
+        {
+            "id": 1,
+            "name": "Mamta Travels",
+            "source": "Thane",
+            "destination": "vashi",
+            "busNumber": "BS123",
+            "time": "04:00PM",
+            "fare": "70",
+            "rating": "2.5",
+            "duration": "01h 15m"
+        },
+        {
+            "id": 2,
+            "name": "Vijeta Travels",
+            "source": "Vashi",
+            "destination": "Thane",
+            "busNumber": "BS345",
+            "time": "10:00AM",
+            "fare": "70",
+            "rating": "3.5",
+            "duration": "01h 15m"
+        },
+        {
+            "id": 3,
+            "name": "Sai Travels",
+            "source": "Vikroli",
+            "destination": "Thane",
+            "busNumber": "BS123",
+            "time": "03:00PM",
+            "fare": "80",
+            "rating": "2.5",
+            "duration": "00h 45m"
+        },
+        {
+            "id": 4,
+            "name": "OmSai Travels",
+            "source": "Thane",
+            "destination": "Vikroli",
+            "busNumber": "BS345",
+            "time": "06:00PM",
+            "fare": "70",
+            "rating": "2.7",
+            "duration": "00h 45m"
+        },
+        {
+            "id": 5,
+            "name": "Mamta Travels",
+            "source": "Panvel",
+            "destination": "Thane",
+            "busNumber": "TH123",
+            "time": "10:00AM",
+            "fare": "120",
+            "rating": "3.5",
+            "duration": "01h 45m"
+        },
+        {
+            "id": 6,
+            "name": "Mamta Travels",
+            "source": "Thane",
+            "destination": "Panvel",
+            "busNumber": "TH456",
+            "time": "04:00PM",
+            "fare": "120",
+            "rating": "4.5",
+            "duration": "01h 45m"
+        }
+    ]
+}

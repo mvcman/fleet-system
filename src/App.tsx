@@ -11,17 +11,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SignIn from './components/Login';
 import SignUp from './components/SignUp';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import { blueGrey, pink } from '@material-ui/core/colors';
-
-const theme = createMuiTheme({
-  typography: {},
-  palette: {
-    primary: blueGrey,
-    secondary: pink,
-  },
-});
-
+import { createMuiTheme } from '@material-ui/core';
+// import { blueGrey, pink } from '@material-ui/core/colors';
+import { combineReducers, createStore } from 'redux';
+import { Provider } from 'react-redux';
 // import GenghisKhan-Italic from './assets/genghis-khan/GenghisKhan-Italic.otf';
 
 export const theme1 = createMuiTheme({
@@ -84,25 +77,50 @@ export const theme6 = createMuiTheme({
   },
 });
 
+function seatReducer(state = 0, action: { type: any; payload: number }) {
+  switch (action.type) {
+    case 'SEAT':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+function routeIdReducer(state = 1, action: { type: any; payload: number }) {
+  switch (action.type) {
+    case 'ROUTE':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  routeId: routeIdReducer,
+  seatNumber: seatReducer,
+});
+
+const store = createStore(rootReducer);
+
+console.log(store.getState());
+
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
-      <div>
-        <ThemeProvider theme={theme6}>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/booking" component={Booking} />
-            <Route exact path="/bookbus" component={Bookbus} />
-            <Route exact path="/login" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route component={ErrorPage} />
-          </Switch>
-          <Footer />
-        </ThemeProvider>
-      </div>
-    </MuiThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme6}>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/booking" component={Booking} />
+          <Route exact path="/bookbus" component={Bookbus} />
+          <Route exact path="/login" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route component={ErrorPage} />
+        </Switch>
+        <Footer />
+      </ThemeProvider>
+    </Provider>
   );
 }
 

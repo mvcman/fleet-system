@@ -111,7 +111,7 @@ p {
 }
 /*Footer Component*/
 .footer{
-  padding: 20px;
+  padding: 10px 10px;
   background: black;
   color: white;
 }
@@ -119,4 +119,10 @@ p {
   margin: 5px;
   display: flex;
   padding: 2px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 20px 100px;
+  }
 }

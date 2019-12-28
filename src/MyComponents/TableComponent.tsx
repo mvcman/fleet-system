@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,6 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
+import { fetchRoutes } from '../APIS';
+import { connect } from 'react-redux';
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -38,8 +40,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
+      height: 'auto',
       overflowX: 'auto',
-      padding: 30,
+      padding: '30px 0',
+      '@media (min-width: 768px)': {
+        padding: 30,
+        height: '100vh',
+      },
     },
     table: {
       minWidth: 700,
@@ -63,22 +70,50 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
+interface Props {
+  id: number;
+  name: string;
+  source: string;
+  destination: string;
+  busNumber: string;
+  time: string;
+}
+// function createData(name: string, source: string, destination: string, busnumber: string, time: string) {
+//   return { name, source, destination, busnumber, time };
+// }
 
-function createData(name: string, source: string, destination: string, busnumber: string, time: string) {
-  return { name, source, destination, busnumber, time };
+// const routes = [
+//   createData('Mamta Travels', 'Thane', 'Vashi', 'BS123', '04:00 PM'),
+//   createData('Mamta Travels', 'Vashi', 'Thane', 'BS123', '04:00 PM'),
+//   createData('Mamta Travels', 'Vikroli', 'Thane', 'BS123', '04:00 PM'),
+//   createData('Mamta Travels', 'Thane', 'Vikroli', 'BS123', '04:00 PM'),
+//   createData('Mamta Travels', 'Vashi', 'Mumbai', 'BS123', '04:00 PM'),
+// ];
+
+async function getData() {
+  const data = await fetchRoutes();
+  console.log('Inside get data', data);
+  return data;
 }
 
-const rows = [
-  createData('Mamta Travels', 'Thane', 'Vashi', 'BS123', '04:00 PM'),
-  createData('Mamta Travels', 'Vashi', 'Thane', 'BS123', '04:00 PM'),
-  createData('Mamta Travels', 'Vikroli', 'Thane', 'BS123', '04:00 PM'),
-  createData('Mamta Travels', 'Thane', 'Vikroli', 'BS123', '04:00 PM'),
-  createData('Mamta Travels', 'Vashi', 'Mumbai', 'BS123', '04:00 PM'),
-];
+interface ReduxProps {
+  dispatch: any;
+}
 
-export default function CustomizedTables() {
+function TableComponent(props: ReduxProps) {
   const classes = useStyles();
-
+  // let routes = null;
+  const [routes, setRoutes] = useState<any>([]);
+  useEffect(() => {
+    async function myData() {
+      const r: any = await getData();
+      await setRoutes(r);
+      console.log('Your data is', r);
+    }
+    myData();
+  }, []);
+  // const routes: any = getData();
+  // console.log('kflajsfajf', routes);
   return (
     <Paper className={classes.root}>
       <Table className={classes.table} aria-label="customized table">
@@ -92,17 +127,17 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <StyledTableRow key={row.name}>
+          {routes.map((row: Props, i: number) => (
+            <StyledTableRow key={i}>
               <StyledTableCell component="th" scope="row" align="center">
                 {row.name}
               </StyledTableCell>
               <StyledTableCell align="center">{row.source}</StyledTableCell>
               <StyledTableCell align="center">{row.destination}</StyledTableCell>
-              <StyledTableCell align="center">{row.busnumber}</StyledTableCell>
+              <StyledTableCell align="center">{row.busNumber}</StyledTableCell>
               <StyledTableCell align="center">{row.time}</StyledTableCell>
               <StyledTableCell align="center">
-                <button className={classes.btn}>
+                <button className={classes.btn} onClick={() => props.dispatch({ type: 'ROUTE', payload: row.id })}>
                   <Link style={{ textDecoration: 'none' }} to="/bookbus">
                     Book
                   </Link>
@@ -115,3 +150,5 @@ export default function CustomizedTables() {
     </Paper>
   );
 }
+
+export default connect()(TableComponent);
