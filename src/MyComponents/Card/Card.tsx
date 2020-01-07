@@ -36,10 +36,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     div: {
       margin: '30px auto',
-      color: theme.palette.primary.main,
+      color: '#2E4053',
     },
     h3: {
-      color: '#AAB7B8',
+      color: '#2E4053',
     },
     p: {
       marginTop: '20px',
